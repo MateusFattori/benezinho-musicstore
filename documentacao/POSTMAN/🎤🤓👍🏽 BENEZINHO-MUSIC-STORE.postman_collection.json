@@ -59,12 +59,10 @@
 									"    pm.response.to.have.status(200);\r",
 									"});\r",
 									"\r",
-									"pm.test(\"Response is an object with id and nome properties\", function () {\r",
+									"pm.test(\"Response is an object with id, name, and nationality properties\", function () {\r",
 									"    var jsonData = pm.response.json();\r",
-									"    pm.expect(jsonData).to.be.an('object').that.has.all.keys('id', 'name');\r",
-									"});\r",
-									"\r",
-									""
+									"    pm.expect(jsonData).to.be.an('object').that.has.all.keys('id', 'name', 'nationality');\r",
+									"});"
 								],
 								"type": "text/javascript"
 							}

@@ -1,6 +1,15 @@
 package br.com.fiap.domain.entity;
 
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.RequiredArgsConstructor;
+
+import java.time.Duration;
+
+@Data
+@AllArgsConstructor
+@RequiredArgsConstructor
 public class Music {
     private Long id;
     private String title;
