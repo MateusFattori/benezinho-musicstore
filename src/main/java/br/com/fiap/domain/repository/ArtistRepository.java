@@ -112,6 +112,9 @@ public class ArtistRepository implements Repository<Artist, Long> {
             ps.setString(1, artist.getName());
             ps.executeUpdate();
             rs = ps.getGeneratedKeys();
+            if (rs.next()){
+                artist.setId(rs.getLong(1));
+            }
         } catch (SQLException e) {
             System.err.println( "Não foi possível salvar no banco de dados: " + e.getMessage() + "\n" + e.getCause() + "\n" + e.getErrorCode() );
         }finally {
