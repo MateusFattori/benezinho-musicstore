@@ -30,10 +30,7 @@ public class MusicRepository implements Repository<Music, Long> {
 
         List<Music> musics = new ArrayList<>();
 
-        var sql = """
-                SELECT * FROM
-                TB_MUSIC
-                """;
+        var sql = "SELECT * FROM TB_MUSIC";
 
         Connection conn = factory.getConnection();
         Statement st = null;
@@ -63,11 +60,7 @@ public class MusicRepository implements Repository<Music, Long> {
 
         Music music = null;
 
-        var sql = """
-                SELECT * 
-                FROM TB_MUSIC
-                WHERE ID_MUSIC = ?
-                """;
+        var sql = "SELECT * FROM TB_MUSIC WHERE ID_MUSIC = ?";
 
         Connection conn = factory.getConnection();
         PreparedStatement ps = null;
@@ -103,12 +96,7 @@ public class MusicRepository implements Repository<Music, Long> {
     @Override
     public Music persist(Music music) {
 
-        var sql = """
-                INSERT INTO TB_MUSIC
-                (ID_MUSIC, TITLE, ARTIST, STYLE, DURATION, ORIGINAL_LANGUAGE, EXPLICIT_LIRICS )
-                VALUES
-                (SQ_MUSIC.nextval, ?,?,?,?,?,?)
-                """;
+        var sql = "INSERT INTO TB_MUSIC (ID_MUSIC, TITLE, ARTIST, STYLE, DURATION, ORIGINAL_LANGUAGE, EXPLICIT_LIRICS ) VALUES (SQ_MUSIC.nextval, ?,?,?,?,?,?)";
 
         Connection conn = factory.getConnection();
         PreparedStatement ps = null;
@@ -141,11 +129,7 @@ public class MusicRepository implements Repository<Music, Long> {
 
         Music music = null;
 
-        var sql = """
-                SELECT * 
-                FROM TB_MUSIC
-                WHERE trim(UPPER(TITLE)) = ?
-                """;
+        var sql = "SELECT *  FROM TB_MUSIC WHERE trim(UPPER(TITLE)) = ?";
 
         Connection conn = factory.getConnection();
         PreparedStatement ps = null;

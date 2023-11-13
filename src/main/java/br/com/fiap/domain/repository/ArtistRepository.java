@@ -28,10 +28,7 @@ public class ArtistRepository implements Repository<Artist, Long> {
 
         List<Artist> artists = new ArrayList<>();
 
-        var sql = """
-                SELECT * 
-                FROM TB_ARTIST               
-                """;
+        var sql = "SELECT * FROM TB_ARTIST ";
 
         Connection conn = factory.getConnection();
         Statement st = null;
@@ -59,11 +56,7 @@ public class ArtistRepository implements Repository<Artist, Long> {
 
         Artist artist = null;
 
-        var sql = """
-                SELECT *
-                FROM TB_ARTIST
-                WHERE ID_ARTIST = ?
-                """;
+        var sql = "SELECT * FROM TB_ARTIST WHERE ID_ARTIST = ?";
 
         Connection conn = factory.getConnection();
         PreparedStatement ps = null;
@@ -97,11 +90,7 @@ public class ArtistRepository implements Repository<Artist, Long> {
     @Override
     public Artist persist(Artist artist) {
 
-        var sql = """
-                INSERT INTO TB_ARTIST (ID_ARTIST, NM_ARTIST, NATIONALITY)
-                values
-                (SQ_ARTIST.nextval,?,?)
-                """;
+        var sql = "INSERT INTO TB_ARTIST (ID_ARTIST, NM_ARTIST, NATIONALITY) values (SQ_ARTIST.nextval,?,?)";
 
         Connection conn = factory.getConnection();
         PreparedStatement ps = null;
@@ -129,11 +118,7 @@ public class ArtistRepository implements Repository<Artist, Long> {
 
         Artist artist = null;
 
-        var sql = """
-                SELECT *
-                FROM TB_ARTIST
-                WHERE trim(upper(NM_ARTIST)) = ?
-                """;
+        var sql = "SELECT * FROM TB_ARTIST WHERE trim(upper(NM_ARTIST)) = ?";
 
         Connection conn = factory.getConnection();
         PreparedStatement ps = null;
